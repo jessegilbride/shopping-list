@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ShoppingItem(props) {
+export default function ShoppingListItem(props) {
   return (
     <li>
       <h2 style={{
@@ -14,6 +14,6 @@ export default function ShoppingItem(props) {
   )
 }
 
-ShoppingItem.defaultProps = {
+ShoppingListItem.defaultProps = {
   item: {}
 }

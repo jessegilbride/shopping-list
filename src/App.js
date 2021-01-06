@@ -1,6 +1,6 @@
-import React from "react";
-import AddItemForm from './shopping-list/AddItemForm';
-import ShoppingList from './shopping-list/ShoppingList';
+import React from 'react';
+import AddItemForm from './components/AddItemForm';
+import ShoppingList from './components/ShoppingList';
 
 class App extends React.Component {
   state = {
@@ -30,3 +30,5 @@ class App extends React.Component {
     )
   }
 }
+
+export default App;
