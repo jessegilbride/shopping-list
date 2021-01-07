@@ -8,6 +8,8 @@ export default function ShoppingList(props) {
         <ShoppingItem
           key={i}
           item={item}
+          onDeleteItem={props.onDeleteItem} // passed via props, uses the same name again for easy matching
+          onCheckItem={props.onCheckItem} // (same as above comment)
         />
       )}
     </ul>

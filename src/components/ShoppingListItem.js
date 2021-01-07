@@ -1,6 +1,22 @@
 import React from 'react'
 
-export default function ShoppingListItem(props) {
+/* class ShoppingListItem extends React.Component {
+  render() {
+    return (
+      <li>
+        <h2 style={{
+          textDecoration: this.props.item.checked ? 'line-through' : null,
+        }}>
+          {this.props.item.name}
+        </h2>
+        <button onClick={this.props.onCheckItem}>check</button>
+        <button onClick={this.props.onDeleteItem}>delete</button>
+      </li>
+    )
+  }
+} */
+
+function ShoppingListItem(props) {
   return (
     <li>
       <h2 style={{
@@ -8,8 +24,8 @@ export default function ShoppingListItem(props) {
       }}>
         {props.item.name}
       </h2>
-      <button type='button'>check</button>
-      <button type='button'>delete</button>
+      <button onClick={() => props.onCheckItem(props.item)}>check</button>
+      <button onClick={() => props.onDeleteItem(props.item)} >delete</button>
     </li>
   )
 }
@@ -17,3 +33,5 @@ export default function ShoppingListItem(props) {
 ShoppingListItem.defaultProps = {
   item: {}
 }
+
+export default ShoppingListItem;

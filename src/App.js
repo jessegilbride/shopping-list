@@ -12,6 +12,28 @@ class App extends React.Component {
     ]
   };
 
+  handleCheckItem(item) {
+    // console.log('handleCheckItem() called');
+    // console.log(item);
+    const newItems = this.state.shoppingItems.map(itm => {
+      if (itm === item) {
+        itm.checked = !itm.checked
+      }
+      return itm
+    })
+    this.setState({
+      shoppingItems: newItems
+    })  
+  }
+
+  handleDeleteItem(item) {
+    // console.log('handleDeleteItem() called');
+    const newItems = this.state.shoppingItems.filter(itm => itm !== item)
+    this.setState({
+      shoppingItems: newItems
+    })
+  }
+
   render() {
     return (
       <>
@@ -23,7 +45,11 @@ class App extends React.Component {
             <AddItemForm />
           </section>
           <section>
-            <ShoppingList items={this.state.shoppingItems} />
+            <ShoppingList 
+              items={this.state.shoppingItems}
+              onDeleteItem={this.handleDeleteItem}
+              onCheckItem={this.handleCheckItem}
+            />
           </section>
         </main>
       </>
