@@ -1,11 +1,15 @@
 import React from 'react';
 
-export default class AddItemForm extends React.Component {
+class AddItemForm extends React.Component {
+  onSubmitForm = (event) => {
+    event.preventDefault();
+    this.props.onAddItem(event.target.itemToAdd.value); // term after event.target must match name value coming from form input
+  }
   render() {
-    /* TODO: need to wire up the form to add items in App state... */
     return (
-      <form>
+      <form onSubmit={this.onSubmitForm}>
         <input
+          name='itemToAdd'
           type='text'
           placeholder='carrots'
           aria-label='Shopping list item'
@@ -15,3 +19,5 @@ export default class AddItemForm extends React.Component {
     )
   }
 }
+
+export default AddItemForm

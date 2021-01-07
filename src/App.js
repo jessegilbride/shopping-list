@@ -5,16 +5,24 @@ import ShoppingList from './components/ShoppingList';
 class App extends React.Component {
   state = {
     shoppingItems: [
-      /* put stub items in here for testing */
       { name: 'apples', checked: false },
       { name: 'oranges', checked: true },
       { name: 'bread', checked: false },
     ]
   };
 
-  handleCheckItem(item) {
-    // console.log('handleCheckItem() called');
-    // console.log(item);
+  handleAddItem = (itemName) => {
+    // console.log(itemName);
+    const newItems = [
+      ...this.state.shoppingItems,
+      { name: itemName, checked: false }
+    ]
+    this.setState({
+      shoppingItems: newItems
+    })  
+  }
+
+  handleCheckItem = (item) => {
     const newItems = this.state.shoppingItems.map(itm => {
       if (itm === item) {
         itm.checked = !itm.checked
@@ -23,11 +31,10 @@ class App extends React.Component {
     })
     this.setState({
       shoppingItems: newItems
-    })  
+    })
   }
 
-  handleDeleteItem(item) {
-    // console.log('handleDeleteItem() called');
+  handleDeleteItem = (item) => {
     const newItems = this.state.shoppingItems.filter(itm => itm !== item)
     this.setState({
       shoppingItems: newItems
@@ -42,7 +49,7 @@ class App extends React.Component {
         </header>
         <main>
           <section>
-            <AddItemForm />
+            <AddItemForm onAddItem={this.handleAddItem} />
           </section>
           <section>
             <ShoppingList 
