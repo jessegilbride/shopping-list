@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import AddItemForm from './components/AddItemForm';
 import ShoppingList from './components/ShoppingList';
 
@@ -43,7 +43,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <Fragment>
         <header>
           <h1>Shopping List</h1>
         </header>
@@ -59,7 +59,7 @@ class App extends React.Component {
             />
           </section>
         </main>
-      </>
+      </Fragment>
     )
   }
 }
